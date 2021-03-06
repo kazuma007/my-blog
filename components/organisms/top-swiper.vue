@@ -1,10 +1,20 @@
 <template>
   <swiper :options="swiperOptions">
-    <swiper-slide><top-swiper-article /></swiper-slide>
-    <swiper-slide><top-swiper-article /></swiper-slide>
-    <swiper-slide><top-swiper-article /></swiper-slide>
-    <swiper-slide><top-swiper-article /></swiper-slide>
-    <swiper-slide><top-swiper-article /></swiper-slide>
+    <swiper-slide @click.native="$emit('click-swiper-slide')"
+      ><top-swiper-article
+    /></swiper-slide>
+    <swiper-slide @click.native="$emit('click-swiper-slide')"
+      ><top-swiper-article
+    /></swiper-slide>
+    <swiper-slide @click.native="$emit('click-swiper-slide')"
+      ><top-swiper-article
+    /></swiper-slide>
+    <swiper-slide @click.native="$emit('click-swiper-slide')"
+      ><top-swiper-article
+    /></swiper-slide>
+    <swiper-slide @click.native="$emit('click-swiper-slide')"
+      ><top-swiper-article /></swiper-slide
+    >ß
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
     <div class="swiper-pagination" slot="pagination"></div>

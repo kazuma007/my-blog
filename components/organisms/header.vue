@@ -5,7 +5,11 @@
       <div class="w-2/6 flex justify-center">
         <img src="~/assets/images/logo.png" class="h-16" />
       </div>
-      <header-right class="w-2/6" />
+      <header-right
+        class="w-2/6"
+        @click-twitter="$emit('click-twitter')"
+        @click-github="$emit('click-github')"
+      />
     </div>
     <hr class="header-line border-2" />
   </div>

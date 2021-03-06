@@ -1,7 +1,13 @@
 <template>
   <div class="mx-5">
-    <top-header />
-    <top-swiper class="top-swiper-article my-3" />
+    <top-header
+      @click-twitter="navigateToTwitter"
+      @click-github="navigateToGithub"
+    />
+    <top-swiper
+      class="top-swiper-article my-3"
+      @click-swiper-slide="navigateToArticle"
+    />
     <div class="flex flex-wrap">
       <div class="top-article">
         <top-article-all
@@ -10,7 +16,11 @@
           @click.native="navigateToArticle"
         />
       </div>
-      <top-profile class="top-profile" />
+      <top-profile
+        class="top-profile"
+        @click-twitter="navigateToTwitter"
+        @click-github="navigateToGithub"
+      />
     </div>
   </div>
 </template>
@@ -31,8 +41,14 @@ import TopProfile from "~/components/organisms/top-profile.vue";
   }
 })
 export default class TopPage extends Vue {
+  navigateToTwitter() {
+    window.open("https://twitter.com/DYc94Wnm9pW9", "_blank");
+  }
+  navigateToGithub() {
+    window.open("https://github.com/kazuma007", "_blank");
+  }
   navigateToArticle() {
-    this.$router.push({ name: "article" });
+    this.$router.push({ name: "article", params: { article: "hello" } });
   }
 }
 </script>

@@ -2,14 +2,21 @@
   <div class="top-profile px-5">
     <div class="text-center pb-5">
       <top-profile-title :text="'About me'" class="mb-3" />
-      <img src="~/assets/images/article-icon.png" class="top-profile__image mx-auto" />
-      <p class="py-3">山田太郎</p>
-      <p>自己紹介を書く</p>
+      <img
+        src="~/assets/images/article-icon.png"
+        class="top-profile__image mx-auto"
+      />
+      <p class="py-3">Kintaro</p>
+      <p>まともにコードを書き始めて1年が経ちました！</p>
     </div>
     <div class="py-3 text-center pb-5">
       <top-profile-title :text="'Follow me'" class="mb-3" />
-      <fa :icon="iconTwitter" class="mr-6 text-3xl" />
-      <fa :icon="iconGithub" class="text-3xl" />
+      <fa
+        :icon="iconTwitter"
+        class="mr-6 text-3xl"
+        @click="$emit('click-twitter')"
+      />
+      <fa :icon="iconGithub" class="text-3xl" @click="$emit('click-github')" />
     </div>
     <div class="py-3 pb-5">
       <top-profile-title :text="'Labels'" class="mb-3" />
