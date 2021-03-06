@@ -11,14 +11,14 @@
       <fa :icon="iconTwitter" class="mr-6 text-3xl" />
       <fa :icon="iconGithub" class="text-3xl" />
     </div>
-    <div class="py-3 text-center pb-5">
+    <div class="py-3 pb-5">
       <top-profile-title :text="'Labels'" class="mb-3" />
-      <top-profile-label :text="'タグ'" />
-      <top-profile-label :text="'タグ'" />
-      <top-profile-label :text="'タグ'" />
-      <top-profile-label :text="'タグ'" />
-      <top-profile-label :text="'タグ'" />
-      <top-profile-label :text="'タグ'" />
+      <top-profile-label :text="'タグ'" class="my-2" />
+      <top-profile-label :text="'タグ'" class="my-2" />
+      <top-profile-label :text="'タグ'" class="my-2" />
+      <top-profile-label :text="'タグ'" class="my-2" />
+      <top-profile-label :text="'タグ'" class="my-2" />
+      <top-profile-label :text="'タグ'" class="my-2" />
     </div>
     <div>
       <top-profile-title :text="'Archive'" class="mb-3" />

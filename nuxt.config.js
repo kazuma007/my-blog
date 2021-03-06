@@ -40,7 +40,16 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-fontawesome',
+    '@nuxtjs/markdownit',
   ],
+
+  markdownit: {
+    injected: true,
+    breaks: true,
+    html: true,
+    linkify: true,
+    typography: true,
+  },
 
   fontawesome: {
     component: 'fa'

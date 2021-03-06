@@ -10,7 +10,7 @@
       <p class="top-article-all__tag text-xs truncate leading-4 truncate text-gray-600">
         タグ
       </p>
-      <p class="top-article-all__title my-3 truncate text-xl bold">
+      <p class="top-article-all__title my-3 truncate text-xl font-bold">
         タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
       </p>
       <p class="top-article-all__date text-xs truncate leading-4 truncate text-gray-600">
