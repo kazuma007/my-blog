@@ -3,7 +3,7 @@
     <p class="text-xl font-bold py-5">タイトルタイトルタイトル</p>
     <p class="text-xs text-gray-600 text-right">2021/03/06</p>
     <img src="~/assets/images/article-icon.png" class="h-64 mx-auto" />
-    <div v-html="$md.render(sample)"></div>
+    <div v-html="$md.render(sample)" class="markdown-body"></div>
   </div>
 </template>
 
@@ -75,14 +75,6 @@ Start numbering with offset:
   }
 }
 </script>
-<style>
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: revert;
-  font-weight: revert;
-}
+<style scoped>
+@import "https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css";
 </style>

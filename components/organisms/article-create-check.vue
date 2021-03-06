@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5">
+  <div>
     <div>
       <span class="text-sm text-gray-700">Title</span>
       <p class="text-xl font-bold">{{ title }}</p>

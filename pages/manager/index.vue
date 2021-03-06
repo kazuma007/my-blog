@@ -2,12 +2,13 @@
   <div class="mx-5">
     <div class="flex flex-wrap justify-center">
       <article-create
-        class="article-create"
+        class="article-create mt-5 mb-10 mx-5"
         @input-title="inputTitle"
         @input-content="inputContent"
+        @change-file="changeFile"
       />
       <article-create-check
-        class="article-create-check"
+        class="article-create-check my-5"
         :title="title"
         :content="content"
       />
@@ -29,13 +30,27 @@ import ArticleCreateCheck from "~/components/organisms/article-create-check.vue"
 export default class TopPage extends Vue {
   title: string = "";
   content: string = "";
+  file: File = {} as File;
+
   inputTitle(title: string) {
-    console.log(title);
     this.title = title;
   }
+
   inputContent(content: string) {
-    console.log(content);
     this.content = content;
+  }
+
+  changeFile(file: File) {
+    this.file = file;
+  }
+
+  getBase64(file: File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
   }
 }
 </script>
