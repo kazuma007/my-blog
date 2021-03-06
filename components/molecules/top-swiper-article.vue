@@ -7,8 +7,11 @@
       />
     </div>
     <div class="top-swiper-article__title mx-3">
-      <p class="text-xs leading-4 truncate text-gray-600 ">
+      <p class="text-xl truncate text-gray-600 ">
         タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      </p>
+      <p class="text-xs py-2 leading-4 truncate text-gray-600 ">
+        2021/03/06
       </p>
       <a href="" class="text-xs leading-4 text-blue-800">READ MORE</a>
     </div>
@@ -28,10 +31,10 @@ export default class TopSwiperArticle extends Vue {
 </script>
 <style scoped>
 .top-swiper-article__image {
-  height: 15rem;
+  height: 17rem;
   width: auto;
 }
 .top-swiper-article__title {
-  height: 5rem;
+  height: 8rem;
 }
 </style>

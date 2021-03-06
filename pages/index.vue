@@ -4,7 +4,7 @@
     <top-swiper class="top-swiper-article my-3" />
     <div class="flex flex-wrap">
       <div class="top-article">
-        <top-article-all v-for="index in 10" :key="index" />
+        <top-article-all v-for="index in 5" :key="index" />
       </div>
       <top-profile class="top-profile" />
     </div>
@@ -30,7 +30,7 @@ export default class TopPage extends Vue {}
 </script>
 <style scoped>
 .top-swiper-article {
-  height: 20rem;
+  height: 25rem;
   @apply w-full;
 }
 .top-article {

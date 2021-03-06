@@ -1,5 +1,5 @@
 <template>
-  <div class="header float">
+  <div class="header">
     <div class="h-16 flex justify-between items-center">
       <header-left class="w-2/6" />
       <div class="w-2/6 flex justify-center">
