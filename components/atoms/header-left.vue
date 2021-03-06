@@ -1,9 +1,4 @@
 <template>
-  <!-- <div class="flex justify-between items-center">
-    <fa :icon="icon" />
-    <p>About</p>
-    <p>Categories</p>
-  </div> -->
   <div>
     <fa :icon="icon" class="text-3xl" />
   </div>
