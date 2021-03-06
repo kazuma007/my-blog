@@ -1,19 +1,29 @@
 <template>
   <div class="mx-5">
     <top-header />
-    <top-swiper-article class="top-swiper-article my-3" />
+    <top-swiper class="top-swiper-article my-3" />
+    <div class="flex flex-wrap">
+      <div class="top-article">
+        <top-article-all v-for="index in 10" :key="index" />
+      </div>
+      <top-profile class="top-profile" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import TopHeader from "~/components/organisms/header.vue";
-import TopSwiperArticle from "~/components/organisms/top-swiper-article.vue";
+import TopSwiper from "~/components/organisms/top-swiper.vue";
+import TopArticleAll from "~/components/organisms/top-article-all.vue";
+import TopProfile from "~/components/organisms/top-profile.vue";
 
 @Component({
   components: {
     TopHeader,
-    TopSwiperArticle
+    TopSwiper,
+    TopArticleAll,
+    TopProfile
   }
 })
 export default class TopPage extends Vue {}
@@ -21,5 +31,24 @@ export default class TopPage extends Vue {}
 <style scoped>
 .top-swiper-article {
   height: 20rem;
+  @apply w-full;
+}
+.top-article {
+  @apply w-full;
+}
+.top-profile {
+  @apply py-6;
+  @apply w-full;
+}
+@media (min-width: 1024px) {
+  .top-swiper-article {
+    width: 40%;
+  }
+  .top-article {
+    width: 70%;
+  }
+  .top-profile {
+    width: 30%;
+  }
 }
 </style>

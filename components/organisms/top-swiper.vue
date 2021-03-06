@@ -1,10 +1,10 @@
 <template>
   <swiper :options="swiperOptions">
-    <swiper-slide><img src="~/assets/images/article-icon.png"/></swiper-slide>
-    <swiper-slide><img src="~/assets/images/article-icon.png"/></swiper-slide>
-    <swiper-slide><img src="~/assets/images/article-icon.png"/></swiper-slide>
-    <swiper-slide><img src="~/assets/images/article-icon.png"/></swiper-slide>
-    <swiper-slide><img src="~/assets/images/article-icon.png"/></swiper-slide>
+    <swiper-slide><top-swiper-article /></swiper-slide>
+    <swiper-slide><top-swiper-article /></swiper-slide>
+    <swiper-slide><top-swiper-article /></swiper-slide>
+    <swiper-slide><top-swiper-article /></swiper-slide>
+    <swiper-slide><top-swiper-article /></swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
     <div class="swiper-pagination" slot="pagination"></div>
@@ -15,17 +15,19 @@
 import { Vue, Component } from "vue-property-decorator";
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
+import TopSwiperArticle from "~/components/molecules/top-swiper-article.vue";
 
 @Component({
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    TopSwiperArticle
   },
   directives: {
     swiper: directive
   }
 })
-export default class TopSwiperArticle extends Vue {
+export default class TopSwiper extends Vue {
   swiperOptions: object = {
     loop: true,
     navigation: {
@@ -38,3 +40,9 @@ export default class TopSwiperArticle extends Vue {
   };
 }
 </script>
+<style scoped>
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1rem;
+}
+</style>
