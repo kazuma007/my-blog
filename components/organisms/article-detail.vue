@@ -3,7 +3,7 @@
     <p class="text-xl font-bold py-5">{{title}}</p>
     <p class="text-xs text-gray-600 text-right">{{date}}</p>
     <img :src="url" class="h-64 mx-auto" />
-    <div v-html="$md.render(content)" class="markdown-body"></div>
+    <div v-html="$md.render(content)" class="my-10 markdown-body"></div>
   </div>
 </template>
 
