@@ -1,17 +1,14 @@
 <template>
   <div class="top-swiper-article flex flex-col">
     <div class="flex justify-center">
-      <img
-        src="~/assets/images/article-icon.png"
-        class="top-swiper-article__image"
-      />
+      <img :src="article.url" class="top-swiper-article__image" />
     </div>
     <div class="top-swiper-article__title mx-3">
       <p class="text-xl truncate text-gray-600 ">
-        タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+        {{ article.title }}
       </p>
       <p class="text-xs py-2 leading-4 truncate text-gray-600 ">
-        2021/03/06
+        {{ article.date }}
       </p>
       <a href="" class="text-xs leading-4 text-blue-800">READ MORE</a>
     </div>
@@ -19,14 +16,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Vue, Component, Prop } from "vue-property-decorator";
+import { Article } from "~/models/article";
 
 @Component
 export default class TopSwiperArticle extends Vue {
-  get icon() {
-    return faBars;
-  }
+  @Prop({ type: Object, required: true })
+  article!: Article;
 }
 </script>
 <style scoped>

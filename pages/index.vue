@@ -6,14 +6,16 @@
     />
     <top-swiper
       class="top-swiper-article my-3"
+      :articles="articles"
       @click-swiper-slide="navigateToArticle"
     />
     <div class="flex flex-wrap">
       <div class="top-article">
         <top-article-all
-          v-for="index in 5"
+          v-for="(article, index) in articles"
           :key="index"
-          @click.native="navigateToArticle"
+          :article="article"
+          @click.native="navigateToArticle(article)"
         />
       </div>
       <top-profile
@@ -31,6 +33,7 @@ import TopHeader from "~/components/organisms/header.vue";
 import TopSwiper from "~/components/organisms/top-swiper.vue";
 import TopArticleAll from "~/components/organisms/top-article-all.vue";
 import TopProfile from "~/components/organisms/top-profile.vue";
+import { Article } from "~/models/article";
 
 @Component({
   components: {
@@ -41,14 +44,33 @@ import TopProfile from "~/components/organisms/top-profile.vue";
   }
 })
 export default class TopPage extends Vue {
+  articles: Article[] = [];
+
+  async mounted() {
+    await this.getArticles();
+  }
+
+  async getArticles() {
+    const data = await this.$repositories.article.get();
+    this.articles = data;
+  }
+
   navigateToTwitter() {
     window.open("https://twitter.com/DYc94Wnm9pW9", "_blank");
   }
   navigateToGithub() {
     window.open("https://github.com/kazuma007", "_blank");
   }
-  navigateToArticle() {
-    this.$router.push({ name: "article", params: { article: "hello" } });
+  navigateToArticle(article: Article) {
+    this.$router.push({
+      name: "article",
+      params: {
+        title: article.title,
+        content: article.content,
+        url: article.url,
+        date: article.date
+      }
+    });
   }
 }
 </script>

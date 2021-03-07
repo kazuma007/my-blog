@@ -3,7 +3,7 @@
     <div class="text-center pb-5">
       <top-profile-title :text="'About me'" class="mb-3" />
       <img
-        src="~/assets/images/article-icon.png"
+        src="~/assets/images/aigahaku.png"
         class="top-profile__image mx-auto"
       />
       <p class="py-3">Kintaro</p>
@@ -19,7 +19,7 @@
       <fa :icon="iconGithub" class="text-3xl" @click="$emit('click-github')" />
     </div>
     <div class="py-3 pb-5">
-      <top-profile-title :text="'Labels'" class="mb-3" />
+      <top-profile-title :text="'Labels（実装予定）'" class="mb-3" />
       <top-profile-label :text="'タグ'" class="my-2" />
       <top-profile-label :text="'タグ'" class="my-2" />
       <top-profile-label :text="'タグ'" class="my-2" />
@@ -28,7 +28,7 @@
       <top-profile-label :text="'タグ'" class="my-2" />
     </div>
     <div>
-      <top-profile-title :text="'Archive'" class="mb-3" />
+      <top-profile-title :text="'Archive（実装予定）'" class="mb-3" />
       <p>2021/04</p>
       <p>2021/03</p>
       <p>2021/02</p>

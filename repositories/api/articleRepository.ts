@@ -26,13 +26,15 @@ export class ArticleRepository {
     const articles: Article[] = [];
     for (let petResponse of response) {
       const article: Article = {
-        url: process.env.S3_URL + petResponse["storage_key"],
+        url:
+          petResponse["storage_key"] !== ""
+            ? process.env.S3_URL + petResponse["storage_key"]
+            : "",
         title: petResponse["title"],
         content: petResponse["content"],
-        date: petResponse["date"]
+        date: petResponse["registered_time"].substring(0,10)
       };
       articles.push(article);
-      console.log(articles);
     }
     return articles;
   }

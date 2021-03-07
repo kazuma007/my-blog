@@ -3,7 +3,13 @@
     <top-header />
     <div class="flex flex-wrap">
       <div class="top-article">
-        <article-detail :text="text" class="mx-5" />
+        <article-detail
+          :title="title"
+          :content="content"
+          :date="date"
+          :url="url"
+          class="mx-5"
+        />
       </div>
       <top-profile class="top-profile" />
     </div>
@@ -24,7 +30,18 @@ import ArticleDetail from "~/components/organisms/article-detail.vue";
   }
 })
 export default class TopPage extends Vue {
-  text: string = "# h1 Heading 8-)";
+  get title() {
+    return this.$route.params.title;
+  }
+  get content() {
+    return this.$route.params.content;
+  }
+  get date() {
+    return this.$route.params.date;
+  }
+  get url() {
+    return this.$route.params.url;
+  }
 }
 </script>
 <style scoped>
