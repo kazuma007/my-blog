@@ -5,7 +5,7 @@
       @click-github="navigateToGithub"
     />
     <top-swiper
-      class="top-swiper-article my-3"
+      class="top-swiper-article my-10"
       :articles="articles"
       @click-swiper-slide="navigateToArticle"
     />
@@ -61,6 +61,7 @@ export default class TopPage extends Vue {
   navigateToGithub() {
     window.open("https://github.com/kazuma007", "_blank");
   }
+
   navigateToArticle(article: Article) {
     this.$router.push({
       name: "article",

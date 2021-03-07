@@ -7,7 +7,7 @@
         class="top-profile__image mx-auto"
       />
       <p class="py-3">Kintaro</p>
-      <p>まともにコードを書き始めて1年が経ちました！</p>
+      <p>こんにちは！</p>
     </div>
     <div class="py-3 text-center pb-5">
       <top-profile-title :text="'Follow me'" class="mb-3" />

@@ -3,7 +3,7 @@
     <swiper-slide
       v-for="(article, index) in articles"
       :key="index"
-      @click.native="$emit('click-swiper-slide')"
+      @click.native="clickSwiperSlide(index)"
       ><top-swiper-article :article="article"
     /></swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
@@ -34,6 +34,10 @@ export default class TopSwiper extends Vue {
   @Prop({ type: Array as PropType<string[]>, required: true })
   articles!: Article[];
 
+  clickSwiperSlide(index: any) {
+    this.$emit("click-swiper-slide", this.articles[index]);
+  }
+
   swiperOptions: object = {
     loop: true,
     navigation: {
@@ -60,13 +64,13 @@ export default class TopSwiper extends Vue {
   left: -10px;
 }
 @media (min-width: 1024px) {
-.swiper-button-next,
-.swiper-container-rtl .swiper-button-prev {
-  right: 3rem;
-}
-.swiper-button-prev,
-.swiper-container-rtl .swiper-button-next {
-  left: 3rem;
-}
+  .swiper-button-next,
+  .swiper-container-rtl .swiper-button-prev {
+    right: 3rem;
+  }
+  .swiper-button-prev,
+  .swiper-container-rtl .swiper-button-next {
+    left: 3rem;
+  }
 }
 </style>
