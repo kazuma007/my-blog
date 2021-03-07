@@ -1,3 +1,6 @@
+require("dotenv").config();
+const { BASE_URL, S3_URL } = process.env;
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -51,6 +54,11 @@ export default {
 
   fontawesome: {
     component: "fa"
+  },
+
+  env: {
+    BASE_URL,
+    S3_URL
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
