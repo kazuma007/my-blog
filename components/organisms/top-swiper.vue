@@ -1,11 +1,11 @@
 <template>
   <swiper :options="swiperOptions">
-    <swiper-slide
-      v-for="(article, index) in articles"
-      :key="index"
-      @click.native="clickSwiperSlide(index)"
-      ><top-swiper-article :article="article"
-    /></swiper-slide>
+    <swiper-slide v-for="(article, index) in articles" :key="index">
+      <top-swiper-article
+        :article="article"
+        @click.native="clickSwiperSlide(index)"
+      />
+    </swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
     <div class="swiper-pagination" slot="pagination"></div>
@@ -39,7 +39,6 @@ export default class TopSwiper extends Vue {
   }
 
   swiperOptions: object = {
-    loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
