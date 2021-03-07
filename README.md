@@ -2,6 +2,10 @@
 Personal blog project with Nuxt.js + TypeScript.
 [Backend](https://github.com/kazuma007/my-blog-backend)
 
+## Technologies
+* Nuxt.js
+* TypeScript
+
 ## Build Setup
 
 ```bash
