@@ -10,7 +10,7 @@
       <p class="text-xs py-2 leading-4 truncate text-gray-600 ">
         {{ article.date }}
       </p>
-      <a href="" class="text-xs leading-4 text-blue-800">READ MORE</a>
+      <p class="text-xs leading-4 text-blue-800">READ MORE</p>
     </div>
   </div>
 </template>

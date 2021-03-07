@@ -51,4 +51,22 @@ export default class TopSwiper extends Vue {
 .swiper-button-next:after {
   font-size: 1rem;
 }
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  right: -10px;
+}
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  left: -10px;
+}
+@media (min-width: 1024px) {
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  right: 3rem;
+}
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  left: 3rem;
+}
+}
 </style>

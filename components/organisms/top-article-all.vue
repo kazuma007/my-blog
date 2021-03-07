@@ -6,8 +6,8 @@
       <img :src="article.url" class="top-article-all__image" />
     </div>
     <div class="top-article-all__info mx-3">
-      <p class="top-article-all__tag text-xs truncate leading-4 text-gray-600">
-        タグ
+      <p class="top-article-all__tag mt-3 text-xs truncate leading-4 text-gray-600">
+        タグ（実装予定）
       </p>
       <p class="top-article-all__title my-3 truncate text-xl font-bold">
         {{ article.title }}
@@ -18,7 +18,7 @@
       <p class="top-article-all__content my-3 truncate text-gray-600">
         {{ article.content }}
       </p>
-      <a href="" class="text-xs leading-4 text-blue-800">READ MORE</a>
+      <p class="text-xs leading-4 text-blue-800">READ MORE</p>
     </div>
     <hr class="top-article-all__line mt-6 border" />
   </div>
