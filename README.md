@@ -1,4 +1,6 @@
 # my-blog
+Personal blog project with Nuxt.js + TypeScript.
+[Backend](https://github.com/kazuma007/my-blog-backend)
 
 ## Build Setup
 
