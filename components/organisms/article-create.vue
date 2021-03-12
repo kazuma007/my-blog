@@ -3,7 +3,7 @@
     <article-create-title class="mb-5" @input-title="inputTitle" />
     <article-create-content class="mb-5" @input-content="inputContent" />
     <article-create-image class="mb-5" @change-file="changeFile" />
-    <article-create-button :text="'Create'" @click="$emit('register')" />
+    <primary-button :text="'Create'" @click="$emit('register')" />
   </div>
 </template>
 
@@ -12,14 +12,14 @@ import { Vue, Component } from "vue-property-decorator";
 import ArticleCreateTitle from "~/components/atoms/article-create-title.vue";
 import ArticleCreateContent from "~/components/atoms/article-create-content.vue";
 import ArticleCreateImage from "~/components/atoms/article-create-image.vue";
-import ArticleCreateButton from "~/components/atoms/article-create-button.vue";
+import PrimaryButton from "~/components/atoms/primary-button.vue";
 
 @Component({
   components: {
     ArticleCreateTitle,
     ArticleCreateContent,
     ArticleCreateImage,
-    ArticleCreateButton
+    PrimaryButton
   }
 })
 export default class ArticleCreate extends Vue {

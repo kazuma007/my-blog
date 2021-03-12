@@ -11,7 +11,7 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
-export default class ArticleCreateButton extends Vue {
+export default class PrimaryButton extends Vue {
   @Prop({ type: String, required: true })
   text!: string;
 }
