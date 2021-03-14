@@ -21,16 +21,15 @@ export class ArticleRepository {
   }
 
   async putArticle(q: Query) {
-    const response = await this.axios.$post(this.url + "/putarticle", q);
+    const response = await this.axios.$post(this.url + "/post/article", q);
   }
 
   async putTag(q: TagQuery) {
-    const response = await this.axios.$post(this.url + "/puttag", q);
+    const response = await this.axios.$post(this.url + "/post/tag", q);
   }
 
   async get() {
-    const response = await this.axios.$get(this.url + "/get");
-    console.log(response);
+    const response = await this.axios.$get(this.url + "/get/article");
     const articles: Article[] = [];
     for (let petResponse of response) {
       const article: Article = {
