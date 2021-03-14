@@ -8,6 +8,10 @@ export interface Query {
   extension: string;
 }
 
+export interface TagQuery {
+  tag: string;
+}
+
 export class ArticleRepository {
   private readonly axios: NuxtAxiosInstance;
   private url = process.env.BASE_URL;
@@ -16,8 +20,12 @@ export class ArticleRepository {
     this.axios = $axios;
   }
 
-  async put(q: Query) {
-    const response = await this.axios.$post(this.url + "/post", q);
+  async putArticle(q: Query) {
+    const response = await this.axios.$post(this.url + "/putarticle", q);
+  }
+
+  async putTag(q: TagQuery) {
+    const response = await this.axios.$post(this.url + "/puttag", q);
   }
 
   async get() {
@@ -32,7 +40,7 @@ export class ArticleRepository {
             : "",
         title: petResponse["title"],
         content: petResponse["content"],
-        date: petResponse["registered_time"].substring(0,10)
+        date: petResponse["registered_time"].substring(0, 10)
       };
       articles.push(article);
     }

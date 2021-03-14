@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article-create-title class="mb-5" @input-title="inputTitle" />
+    <input-text-field class="mb-5" :text="'title'" @input-title="inputTitle" />
     <article-create-content class="mb-5" @input-content="inputContent" />
     <article-create-image class="mb-5" @change-file="changeFile" />
     <primary-button :text="'Create'" @click="$emit('register')" />
@@ -9,14 +9,14 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import ArticleCreateTitle from "~/components/atoms/article-create-title.vue";
+import InputTextField from "~/components/atoms/input-text-field.vue";
 import ArticleCreateContent from "~/components/atoms/article-create-content.vue";
 import ArticleCreateImage from "~/components/atoms/article-create-image.vue";
 import PrimaryButton from "~/components/atoms/primary-button.vue";
 
 @Component({
   components: {
-    ArticleCreateTitle,
+    InputTextField,
     ArticleCreateContent,
     ArticleCreateImage,
     PrimaryButton

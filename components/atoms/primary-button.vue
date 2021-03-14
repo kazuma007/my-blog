@@ -1,6 +1,6 @@
 <template>
   <button
-    class="py-3 px-4 rounded-2xl bg-blue-600 text-white"
+    class="w-32 py-3 px-4 rounded-2xl bg-blue-600 text-white"
     @click="$emit('click')"
   >
     {{ text }}

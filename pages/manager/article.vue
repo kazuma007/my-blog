@@ -54,10 +54,6 @@ export default class TopPage extends Vue {
     if (!this.title || !this.content) {
       this.isEmpty = true;
     }
-    // let fileBase64: Object = {}
-    // if (this.file.name) {
-    //   fileBase64 = await this.getBase64(this.file);
-    // }
     const fileBase64 = this.file.name ? await this.getBase64(this.file) : ""
     const q: Query = {
       title: this.title,
@@ -65,8 +61,7 @@ export default class TopPage extends Vue {
       file: typeof fileBase64 === "string" ? fileBase64 : "",
       extension: this.file.type
     };
-    console.log(q);
-    await this.$repositories.article.put(q)
+    await this.$repositories.article.putArticle(q)
     this.$router.push({
       path: "/"
     });
