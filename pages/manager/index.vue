@@ -12,31 +12,7 @@
           <fa
             :icon="icon"
             class="mx-3 text-xl"
-            @click="$('click-delete-tag')"
-          />
-        </li>
-        <li>
-          タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-          <fa
-            :icon="icon"
-            class="mx-3 text-xl"
-            @click="$('click-delete-tag')"
-          />
-        </li>
-        <li>
-          タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-          <fa
-            :icon="icon"
-            class="mx-3 text-xl"
-            @click="$('click-delete-tag')"
-          />
-        </li>
-        <li>
-          タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-          <fa
-            :icon="icon"
-            class="mx-3 text-xl"
-            @click="$('click-delete-tag')"
+            @click="$('click-delete-title')"
           />
         </li>
       </ul>
@@ -65,7 +41,7 @@ import TopHeader from "~/components/organisms/header.vue";
 import PrimaryButton from "~/components/atoms/primary-button.vue";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import InputTextField from "~/components/atoms/input-text-field.vue";
-import {TagQuery, ArticleRepository} from "~/repositories/api"
+import { TagQuery } from "~/repositories/api";
 
 @Component({
   components: {
@@ -95,12 +71,12 @@ export default class TopPage extends Vue {
 
   async registerTag() {
     if (!this.tag) {
-      return
+      return;
     }
     const q: TagQuery = {
-      tag: this.tag,
+      tag: this.tag
     };
-    await this.$repositories.article.putTag(q)
+    await this.$repositories.article.putTag(q);
     this.$router.push({
       path: "/"
     });
