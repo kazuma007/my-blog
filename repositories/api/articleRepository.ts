@@ -1,5 +1,6 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
 import { Article } from "~/models/article";
+import { Tag } from "~/models/tag";
 
 export interface Query {
   title: string;
@@ -28,7 +29,7 @@ export class ArticleRepository {
     const response = await this.axios.$post(this.url + "/post/tag", q);
   }
 
-  async get() {
+  async getArticles() {
     const response = await this.axios.$get(this.url + "/get/article");
     const articles: Article[] = [];
     for (let petResponse of response) {
@@ -44,5 +45,17 @@ export class ArticleRepository {
       articles.push(article);
     }
     return articles;
+  }
+
+  async getTags() {
+    const response = await this.axios.$get(this.url + "/get/tag");
+    const tags: Tag[] = [];
+    for (let petResponse of response) {
+      const tag: Tag = {
+        tag: petResponse["tag"],
+      };
+      tags.push(tag);
+    }
+    return tags;
   }
 }

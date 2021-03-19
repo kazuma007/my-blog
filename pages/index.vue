@@ -20,6 +20,7 @@
       </div>
       <top-profile
         class="top-profile"
+        :tags="tags"
         @click-twitter="navigateToTwitter"
         @click-github="navigateToGithub"
       />
@@ -34,6 +35,7 @@ import TopSwiper from "~/components/organisms/top-swiper.vue";
 import TopArticleAll from "~/components/organisms/top-article-all.vue";
 import TopProfile from "~/components/organisms/top-profile.vue";
 import { Article } from "~/models/article";
+import { Tag } from "~/models/tag";
 
 @Component({
   components: {
@@ -45,20 +47,27 @@ import { Article } from "~/models/article";
 })
 export default class TopPage extends Vue {
   articles: Article[] = [];
+  tags: Tag[] = [];
 
   async mounted() {
     await this.getArticles();
+    await this.getTags();
   }
 
   async getArticles() {
-    const data = await this.$repositories.article.get();
+    const data = await this.$repositories.article.getArticles();
     this.articles = data;
+  }
+
+  async getTags() {
+    const data = await this.$repositories.article.getTags();
+    this.tags = data;
   }
 
   navigateToTwitter() {
     window.open("https://twitter.com/DYc94Wnm9pW9", "_blank");
   }
-  
+
   navigateToGithub() {
     window.open("https://github.com/kazuma007", "_blank");
   }

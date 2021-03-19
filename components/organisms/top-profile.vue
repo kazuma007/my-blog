@@ -20,12 +20,12 @@
     </div>
     <div class="py-3 pb-5">
       <top-profile-title :text="'Labels（実装予定）'" class="mb-3" />
-      <top-profile-label :text="'タグ'" class="my-2" />
-      <top-profile-label :text="'タグ'" class="my-2" />
-      <top-profile-label :text="'タグ'" class="my-2" />
-      <top-profile-label :text="'タグ'" class="my-2" />
-      <top-profile-label :text="'タグ'" class="my-2" />
-      <top-profile-label :text="'タグ'" class="my-2" />
+      <top-profile-label
+        v-for="(tag, index) in tags"
+        :key="index"
+        :text="tag.tag"
+        class="my-2"
+      />
     </div>
     <div>
       <top-profile-title :text="'Archive（実装予定）'" class="mb-3" />
@@ -38,10 +38,12 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { PropType } from "vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons";
 import TopProfileLabel from "~/components/atoms/top-profile-label.vue";
 import TopProfileTitle from "~/components/atoms/top-profile-title.vue";
+import { Tag } from "~/models/tag";
 
 @Component({
   components: {
@@ -50,6 +52,9 @@ import TopProfileTitle from "~/components/atoms/top-profile-title.vue";
   }
 })
 export default class TopProfile extends Vue {
+  @Prop({ type: Array as PropType<Object[]>, required: true })
+  tags!: Tag[];
+
   get iconTwitter() {
     return faTwitter;
   }
