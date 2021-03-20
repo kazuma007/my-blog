@@ -8,10 +8,8 @@
           :content="content"
           :date="date"
           :url="url"
-          class="mx-5"
         />
       </div>
-      <top-profile class="top-profile" />
     </div>
   </div>
 </template>
@@ -48,16 +46,9 @@ export default class TopPage extends Vue {
 .top-article {
   @apply w-full;
 }
-.top-profile {
-  @apply py-6;
-  @apply w-full;
-}
 @media (min-width: 1024px) {
   .top-article {
-    width: 70%;
-  }
-  .top-profile {
-    width: 30%;
+    @apply mx-32;
   }
 }
 </style>
