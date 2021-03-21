@@ -1,27 +1,25 @@
 <template>
   <div>
-    <p class="text-xl font-bold py-5">{{title}}</p>
-    <p class="text-xs text-gray-600 text-right">{{date}}</p>
-    <img :src="url" class="h-64 mx-auto" />
-    <div v-html="$md.render(content)" class="my-10 markdown-body"></div>
+    <p class="text-xl font-bold py-5">{{ article.title }}</p>
+    <p class="text-xs text-gray-600 text-right">{{ article.date }}</p>
+    <img :src="article.url" class="h-64 mx-auto" />
+    <div
+      v-html="$md.render(String(article.content))"
+      class="my-10 markdown-body"
+    ></div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
+import { Article } from "~/models/article";
 
 @Component({
   components: {}
 })
 export default class ArticleDetail extends Vue {
-  @Prop({ type: String, required: true })
-  title!: string;
-  @Prop({ type: String, required: true })
-  content!: string;
-  @Prop({ type: String, required: true })
-  url!: string;
-  @Prop({ type: String, required: true })
-  date!: string;
+  @Prop({ type: Object, required: true })
+  article!: Article;
 }
 </script>
 <style scoped>

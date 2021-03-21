@@ -3,12 +3,7 @@
     <top-header />
     <div class="flex flex-wrap">
       <div class="top-article">
-        <article-detail
-          :title="title"
-          :content="content"
-          :date="date"
-          :url="url"
-        />
+        <article-detail :article="article" />
       </div>
     </div>
   </div>
@@ -19,6 +14,7 @@ import { Vue, Component } from "vue-property-decorator";
 import TopHeader from "~/components/organisms/header.vue";
 import TopProfile from "~/components/organisms/top-profile.vue";
 import ArticleDetail from "~/components/organisms/article-detail.vue";
+import { Article } from "~/models/article";
 
 @Component({
   components: {
@@ -28,17 +24,16 @@ import ArticleDetail from "~/components/organisms/article-detail.vue";
   }
 })
 export default class TopPage extends Vue {
-  get title() {
-    return this.$route.params.title;
+  article: Article = {} as Article;
+
+  async mounted() {
+    await this.getArticle();
   }
-  get content() {
-    return this.$route.params.content;
-  }
-  get date() {
-    return this.$route.params.date;
-  }
-  get url() {
-    return this.$route.params.url;
+
+  async getArticle() {
+    const key = this.$route.query.key;
+    const data = await this.$repositories.article.getArticle(String(key));
+    this.article = data;
   }
 }
 </script>

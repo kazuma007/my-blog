@@ -75,11 +75,8 @@ export default class TopPage extends Vue {
   navigateToArticle(article: Article) {
     this.$router.push({
       name: "article",
-      params: {
-        title: article.title,
-        content: article.content,
-        url: article.url,
-        date: article.date
+      query: {
+        key: article.key
       }
     });
   }
