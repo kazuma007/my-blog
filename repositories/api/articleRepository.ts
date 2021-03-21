@@ -37,8 +37,8 @@ export class ArticleRepository {
         key:
           petResponse["storage_key"] !== "" ? petResponse["storage_key"] : "",
         url:
-          petResponse["storage_key"] !== ""
-            ? process.env.S3_URL + petResponse["storage_key"]
+          petResponse["filename"] !== ""
+            ? process.env.S3_URL + petResponse["filename"]
             : "",
         title: petResponse["title"],
         content: petResponse["content"],
@@ -46,6 +46,7 @@ export class ArticleRepository {
       };
       articles.push(article);
     }
+    console.log(articles)
     return articles;
   }
 
@@ -58,8 +59,8 @@ export class ArticleRepository {
     const article: Article = {
       key: response["storage_key"] !== "" ? response["storage_key"] : "",
       url:
-        response["storage_key"] !== ""
-          ? process.env.S3_URL + response["storage_key"]
+        response["filename"] !== ""
+          ? process.env.S3_URL + response["filename"]
           : "",
       title: response["title"],
       content: response["content"],
