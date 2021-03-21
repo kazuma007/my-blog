@@ -30,10 +30,12 @@ export class ArticleRepository {
   }
 
   async getArticles() {
-    const response = await this.axios.$get(this.url + "/get/article");
+    const response = await this.axios.$get(this.url + "/get/articles");
     const articles: Article[] = [];
     for (let petResponse of response) {
       const article: Article = {
+        key:
+          petResponse["storage_key"] !== "" ? petResponse["storage_key"] : "",
         url:
           petResponse["storage_key"] !== ""
             ? process.env.S3_URL + petResponse["storage_key"]
@@ -47,12 +49,32 @@ export class ArticleRepository {
     return articles;
   }
 
+  async getArticle(key: string) {
+    const response = await this.axios.$get(this.url + "/get/article", {
+      params: {
+        key: key
+      }
+    });
+    const article: Article = {
+      key: response["storage_key"] !== "" ? response["storage_key"] : "",
+      url:
+        response["storage_key"] !== ""
+          ? process.env.S3_URL + response["storage_key"]
+          : "",
+      title: response["title"],
+      content: response["content"],
+      date: response["registered_time"].substring(0, 10)
+    };
+    console.log(article);
+    return article;
+  }
+
   async getTags() {
     const response = await this.axios.$get(this.url + "/get/tag");
     const tags: Tag[] = [];
     for (let petResponse of response) {
       const tag: Tag = {
-        tag: petResponse["tag"],
+        tag: petResponse["tag"]
       };
       tags.push(tag);
     }
