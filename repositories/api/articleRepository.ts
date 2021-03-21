@@ -65,7 +65,6 @@ export class ArticleRepository {
       content: response["content"],
       date: response["registered_time"].substring(0, 10)
     };
-    console.log(article);
     return article;
   }
 
