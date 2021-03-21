@@ -46,7 +46,6 @@ export class ArticleRepository {
       };
       articles.push(article);
     }
-    console.log(articles)
     return articles;
   }
 
