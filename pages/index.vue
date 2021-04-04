@@ -65,7 +65,7 @@ export default class TopPage extends Vue {
   }
 
   navigateToTwitter() {
-    window.open("https://twitter.com/DYc94Wnm9pW9", "_blank");
+    window.open("https://twitter.com/IR4n6YAKksPd1X", "_blank");
   }
 
   navigateToGithub() {

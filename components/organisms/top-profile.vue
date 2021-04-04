@@ -3,11 +3,18 @@
     <div class="text-center pb-5">
       <top-profile-title :text="'About me'" class="mb-3" />
       <img
-        src="~/assets/images/aigahaku.png"
+        src="~/assets/images/13833813016708.jpg"
         class="top-profile__image mx-auto"
       />
-      <p class="py-3">Kintaro</p>
-      <p>こんにちは！</p>
+      <p class="py-3">DKBN</p>
+      <p>5月からオンライン大学院に進学予定の社会人です。</p>
+      <p>
+        A student in University of Bath (MSc Computer Science) from this May.
+      </p>
+      <p>
+        Interest: Java/Go/Nuxt.js/TypeScript, English
+      </p>
+      <p>IELTS 7.0 (Overal)</p>
     </div>
     <div class="py-3 text-center pb-5">
       <top-profile-title :text="'Follow me'" class="mb-3" />
@@ -30,9 +37,6 @@
     <div>
       <top-profile-title :text="'Archive（実装予定）'" class="mb-3" />
       <p>2021/04</p>
-      <p>2021/03</p>
-      <p>2021/02</p>
-      <p>2021/01</p>
     </div>
   </div>
 </template>
