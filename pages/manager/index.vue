@@ -1,89 +1,80 @@
 <template>
   <div class="mx-5">
-    <top-header
-      @click-twitter="navigateToTwitter"
-      @click-github="navigateToGithub"
-    />
-    <div class="py-3">
-      <p class="text-xl text-gray-600 font-bold">記事一覧</p>
-      <ul class="bg-gray-100 border-2 my-3">
-        <li>
-          タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-          <fa
-            :icon="icon"
-            class="mx-3 text-xl"
-            @click="$('click-delete-title')"
-          />
-        </li>
-      </ul>
-      <primary-button
-        :text="'New Article'"
-        class="my-3"
-        @click="navigateToCreateArticle"
-      />
-    </div>
-    <div class="py-3">
-      <p class="text-xl text-gray-600 font-bold my-3">タグ</p>
-      <input-text-field
-        class="w-32"
-        :isShow="false"
-        :text="'タグ'"
+    <div class="flex flex-wrap justify-center">
+      <article-create
+        class="article-create mt-5 mb-10 mx-5"
         @input-title="inputTitle"
+        @input-content="inputContent"
+        @change-file="changeFile"
+        @register="registerArticle"
       />
-      <primary-button :text="'New Tag'" class="my-3" @click="registerTag" />
+      <article-create-check
+        class="article-create-check my-5"
+        :title="title"
+        :content="content"
+      />
     </div>
+    <p v-if="isEmpty" class="text-center text-xl text-red-600 font-bold mb-40">
+      You forgot to fill in section(s)
+    </p>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import TopHeader from "~/components/organisms/header.vue";
-import PrimaryButton from "~/components/atoms/primary-button.vue";
-import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
-import InputTextField from "~/components/atoms/input-text-field.vue";
-import { TagQuery } from "~/repositories/api";
+import ArticleCreate from "~/components/organisms/article-create.vue";
+import ArticleCreateCheck from "~/components/organisms/article-create-check.vue";
+import { Query } from "~/repositories/api";
 
 @Component({
   components: {
-    TopHeader,
-    PrimaryButton,
-    InputTextField
+    ArticleCreate,
+    ArticleCreateCheck
   }
 })
 export default class TopPage extends Vue {
-  tag: string = "";
+  title: string = "";
+  content: string = "";
+  file: File = {} as File;
+  isEmpty: boolean = false;
 
-  navigateToTwitter() {
-    window.open("https://twitter.com/DYc94Wnm9pW9", "_blank");
+  inputTitle(title: string) {
+    this.title = title;
   }
 
-  navigateToGithub() {
-    window.open("https://github.com/kazuma007", "_blank");
+  inputContent(content: string) {
+    this.content = content;
   }
 
-  navigateToCreateArticle() {
-    this.$router.push({ name: "manager-article" });
-  }
-
-  inputTitle(tag: string) {
-    this.tag = tag;
-  }
-
-  async registerTag() {
-    if (!this.tag) {
-      return;
+  async registerArticle() {
+    if (!this.title || !this.content) {
+      this.isEmpty = true;
     }
-    const q: TagQuery = {
-      tag: this.tag
+    const q: Query = {
+      title: this.title,
+      content: this.content,
+      extension: this.file.type
     };
-    await this.$repositories.article.putTag(q);
+    await this.$repositories.article.putArticle(q);
     this.$router.push({
       path: "/"
     });
   }
-
-  get icon() {
-    return faWindowClose;
-  }
 }
 </script>
+<style scoped>
+.article-create {
+  @apply w-full;
+}
+.article-create-check {
+  @apply w-full;
+}
+@media (min-width: 1024px) {
+  .article-create {
+    width: 48%;
+  }
+  .article-create-check {
+    width: 48%;
+  }
+}
+</style>

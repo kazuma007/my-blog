@@ -5,7 +5,6 @@ import { Tag } from "~/models/tag";
 export interface Query {
   title: string;
   content: string;
-  file: string;
   extension: string;
 }
 
@@ -22,11 +21,11 @@ export class ArticleRepository {
   }
 
   async putArticle(q: Query) {
-    const response = await this.axios.$post(this.url + "/post/article", q);
+    await this.axios.$post(this.url + "/post/article", q);
   }
 
   async putTag(q: TagQuery) {
-    const response = await this.axios.$post(this.url + "/post/tag", q);
+    await this.axios.$post(this.url + "/post/tag", q);
   }
 
   async getArticles() {
@@ -36,10 +35,6 @@ export class ArticleRepository {
       const article: Article = {
         key:
           petResponse["storage_key"] !== "" ? petResponse["storage_key"] : "",
-        url:
-          petResponse["filename"] !== ""
-            ? process.env.S3_URL + petResponse["filename"]
-            : "",
         title: petResponse["title"],
         content: petResponse["content"],
         date: petResponse["registered_time"].substring(0, 10)
@@ -57,10 +52,6 @@ export class ArticleRepository {
     });
     const article: Article = {
       key: response["storage_key"] !== "" ? response["storage_key"] : "",
-      url:
-        response["filename"] !== ""
-          ? process.env.S3_URL + response["filename"]
-          : "",
       title: response["title"],
       content: response["content"],
       date: response["registered_time"].substring(0, 10)
