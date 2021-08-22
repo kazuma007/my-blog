@@ -1,6 +1,10 @@
 <template>
   <div class="mx-5">
-    <top-header />
+    <top-header
+      @click-twitter="navigateToTwitter"
+      @click-github="navigateToGithub"
+      @click-logo="navigateToTop"
+    />
     <div class="flex flex-wrap">
       <div class="top-article">
         <article-detail :article="article" />
@@ -12,14 +16,12 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import TopHeader from "~/components/organisms/header.vue";
-import TopProfile from "~/components/organisms/top-profile.vue";
 import ArticleDetail from "~/components/organisms/article-detail.vue";
 import { Article } from "~/models/article";
 
 @Component({
   components: {
     TopHeader,
-    TopProfile,
     ArticleDetail
   }
 })
@@ -34,6 +36,19 @@ export default class TopPage extends Vue {
     const key = this.$route.query.key;
     const data = await this.$repositories.article.getArticle(String(key));
     this.article = data;
+  }
+
+  navigateToTwitter() {
+    window.open("https://twitter.com/DYc94Wnm9pW9", "_blank");
+  }
+
+  navigateToGithub() {
+    window.open("https://github.com/kazuma007", "_blank");
+  }
+
+  navigateToTop() {
+    console.log("hi");
+    this.$router.push("/");
   }
 }
 </script>

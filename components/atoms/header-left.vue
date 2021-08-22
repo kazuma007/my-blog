@@ -1,7 +1,4 @@
 <template>
-  <div>
-    <fa :icon="icon" class="text-3xl" />
-  </div>
 </template>
 
 <script lang="ts">

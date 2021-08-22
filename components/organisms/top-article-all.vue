@@ -1,25 +1,18 @@
 <template>
   <div
-    class="top-article-all w-full flex flex-wrap justify-center items-center"
+    class="top-article-all my-5 flex flex-col justify-start"
+    v-bind:class="{ 'ml-4': isEven }"
   >
-    <div class="top-article-all__image_area flex justify-center">
-      <img :src="article.url" class="top-article-all__image" />
-    </div>
-    <div class="top-article-all__info mx-3">
-      <p class="top-article-all__tag mt-3 text-xs truncate leading-4 text-gray-600">
-        タグ（実装予定）
-      </p>
-      <p class="top-article-all__title my-3 truncate text-xl font-bold">
-        {{ article.title }}
-      </p>
-      <p class="top-article-all__date text-xs truncate leading-4 text-gray-600">
-        {{ article.date }}
-      </p>
-      <p class="top-article-all__content my-3 truncate text-gray-600">
-        {{ article.content }}
-      </p>
-      <p class="text-xs leading-4 text-blue-800">READ MORE</p>
-    </div>
+    <p class="top-article-all__title my-3 truncate text-xl font-bold">
+      {{ article.title }}
+    </p>
+    <p class="top-article-all__date text-xs truncate leading-4 text-gray-600">
+      {{ article.date }}
+    </p>
+    <p class="top-article-all__content my-3 w-full truncate text-gray-600">
+      {{ article.content }}
+    </p>
+    <p class="text-xs leading-4 text-blue-800 text-center">READ MORE</p>
     <hr class="top-article-all__line mt-6 border" />
   </div>
 </template>
@@ -32,25 +25,22 @@ import { Article } from "~/models/article";
 export default class TopArticleAll extends Vue {
   @Prop({ type: Object, required: true })
   article!: Article;
+
+  @Prop({ type: Boolean, required: true })
+  isEven!: boolean;
 }
 </script>
 <style scoped>
-.top-article-all__image_area {
-  width: 20rem;
-}
-.top-article-all__info {
-  width: 20rem;
+.top-article-all {
+  width: 45%;
 }
 
-.top-article-all__image {
-  height: 20rem;
-  width: auto;
+.top-article-all__info {
+  width: 100%;
 }
-.top-swiper-article__title {
-  height: 5rem;
-}
+
 .top-article-all__line {
-  @apply w-screen;
+  @apply w-full;
   @apply relative;
   left: 50%;
   transform: translateX(-50%);

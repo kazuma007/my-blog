@@ -3,7 +3,7 @@
     <div class="h-16 flex justify-between items-center">
       <header-left class="w-2/6" />
       <div class="w-2/6 flex justify-center">
-        <img src="~/assets/images/logo.png" class="h-16" />
+        <img src="~/assets/images/logo.png" class="h-16" @click="$emit('click-logo')" />
       </div>
       <header-right
         class="w-2/6"
