@@ -5,6 +5,7 @@ Personal blog project with Nuxt.js + TypeScript.
 ## Technologies
 * Nuxt.js
 * TypeScript
+* AWS Amplify
 
 ## Build Setup
 
@@ -24,3 +25,6 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## URI
+You can see how it looks like [HERE](https://main.d2tqhfat9l4v4m.amplifyapp.com/)
