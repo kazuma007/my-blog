@@ -26,5 +26,5 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-## URI
+## URL
 You can see how it looks like [HERE](https://main.d2tqhfat9l4v4m.amplifyapp.com/)
