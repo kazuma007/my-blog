@@ -45,4 +45,10 @@ export default class TopArticleAll extends Vue {
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media all and (max-width: 480px) {
+.top-article-all {
+  width: 100%;
+}
+}
 </style>

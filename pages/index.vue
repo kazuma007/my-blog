@@ -5,7 +5,7 @@
       @click-github="navigateToGithub"
       @click-logo="navigateToTop"
     />
-    <div class="top-article w-full flex flex-wrap justify-center">
+    <div class="top-article mb-10 w-full flex flex-wrap justify-center">
       <top-article-all
         v-for="(article, index) in articles"
         :key="index"
@@ -58,7 +58,7 @@ export default class TopPage extends Vue {
   }
 
   navigateToTop() {
-    console.log("hi")
+    console.log("hi");
     this.$router.push("/");
   }
 
