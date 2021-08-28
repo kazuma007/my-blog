@@ -1,12 +1,11 @@
 <template>
   <div class="header">
-    <div class="h-16 flex justify-between items-center">
-      <header-left class="w-2/6" />
-      <div class="w-2/6 flex justify-center">
+    <div class="h-16 flex justify-center items-center">
+      <div class="flex justify-center">
         <img src="~/assets/images/logo.png" class="h-16" @click="$emit('click-logo')">
       </div>
       <header-right
-        class="w-2/6"
+        class="header-right absolute"
         @click-twitter="$emit('click-twitter')"
         @click-github="$emit('click-github')" />
     </div>
@@ -33,5 +32,9 @@ export default class Header extends Vue {}
   @apply relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.header-right {
+  right: 2.5rem;
 }
 </style>

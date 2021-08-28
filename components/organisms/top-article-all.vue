@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="top-article-all my-5 flex flex-col justify-start"
-    :class="{ 'ml-4': isEven }">
+  <div class="top-article-all my-5 flex flex-col justify-start">
     <p class="top-article-all__title my-3 truncate text-xl font-bold">
       {{ article.title }}
     </p>
@@ -33,7 +31,7 @@ export default class TopArticleAll extends Vue {
 </script>
 <style scoped>
 .top-article-all {
-  width: 47.5%;
+  width: 49%;
 }
 
 .top-article-all__info {
