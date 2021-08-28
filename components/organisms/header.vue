@@ -3,22 +3,21 @@
     <div class="h-16 flex justify-between items-center">
       <header-left class="w-2/6" />
       <div class="w-2/6 flex justify-center">
-        <img src="~/assets/images/logo.png" class="h-16" @click="$emit('click-logo')" />
+        <img src="~/assets/images/logo.png" class="h-16" @click="$emit('click-logo')">
       </div>
       <header-right
         class="w-2/6"
         @click-twitter="$emit('click-twitter')"
-        @click-github="$emit('click-github')"
-      />
+        @click-github="$emit('click-github')" />
     </div>
-    <hr class="header-line border-2" />
+    <hr class="header-line border-2">
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
-import HeaderLeft from "~/components/atoms/header-left.vue";
-import HeaderRight from "~/components/atoms/header-right.vue";
+import { Vue, Component } from 'vue-property-decorator'
+import HeaderLeft from '~/components/atoms/header-left.vue'
+import HeaderRight from '~/components/atoms/header-right.vue'
 
 @Component({
   components: {

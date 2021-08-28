@@ -6,13 +6,11 @@
         @input-title="inputTitle"
         @input-content="inputContent"
         @change-file="changeFile"
-        @register="registerArticle"
-      />
+        @register="registerArticle" />
       <article-create-check
         class="article-create-check my-5"
         :title="title"
-        :content="content"
-      />
+        :content="content" />
     </div>
     <p v-if="isEmpty" class="text-center text-xl text-red-600 font-bold mb-40">
       You forgot to fill in section(s)
@@ -21,10 +19,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
-import ArticleCreate from "~/components/organisms/article-create.vue";
-import ArticleCreateCheck from "~/components/organisms/article-create-check.vue";
-import { Query } from "~/repositories/api";
+import { Vue, Component } from 'vue-property-decorator'
+import ArticleCreate from '~/components/organisms/article-create.vue'
+import ArticleCreateCheck from '~/components/organisms/article-create-check.vue'
+import { Query } from '~/repositories/api'
 
 @Component({
   components: {
@@ -33,32 +31,32 @@ import { Query } from "~/repositories/api";
   }
 })
 export default class TopPage extends Vue {
-  title: string = "";
-  content: string = "";
+  title: string = '';
+  content: string = '';
   file: File = {} as File;
   isEmpty: boolean = false;
 
-  inputTitle(title: string) {
-    this.title = title;
+  inputTitle (title: string) {
+    this.title = title
   }
 
-  inputContent(content: string) {
-    this.content = content;
+  inputContent (content: string) {
+    this.content = content
   }
 
-  async registerArticle() {
+  async registerArticle () {
     if (!this.title || !this.content) {
-      this.isEmpty = true;
+      this.isEmpty = true
     }
     const q: Query = {
       title: this.title,
       content: this.content,
       extension: this.file.type
-    };
-    await this.$repositories.article.putArticle(q);
+    }
+    await this.$repositories.article.putArticle(q)
     this.$router.push({
-      path: "/"
-    });
+      path: '/'
+    })
   }
 }
 </script>

@@ -3,22 +3,21 @@
     <swiper-slide v-for="(article, index) in articles" :key="index">
       <top-swiper-article
         :article="article"
-        @click.native="clickSwiperSlide(index)"
-      />
+        @click.native="clickSwiperSlide(index)" />
     </swiper-slide>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-    <div class="swiper-pagination" slot="pagination"></div>
+    <div slot="button-prev" class="swiper-button-prev" />
+    <div slot="button-next" class="swiper-button-next" />
+    <div slot="pagination" class="swiper-pagination" />
   </swiper>
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Vue, Component, Prop } from "vue-property-decorator";
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
-import TopSwiperArticle from "~/components/molecules/top-swiper-article.vue";
-import { Article } from "~/models/article";
+import { PropType } from 'vue'
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+import TopSwiperArticle from '~/components/molecules/top-swiper-article.vue'
+import { Article } from '~/models/article'
 
 @Component({
   components: {
@@ -34,17 +33,17 @@ export default class TopSwiper extends Vue {
   @Prop({ type: Array as PropType<string[]>, required: true })
   articles!: Article[];
 
-  clickSwiperSlide(index: any) {
-    this.$emit("click-swiper-slide", this.articles[index]);
+  clickSwiperSlide (index: any) {
+    this.$emit('click-swiper-slide', this.articles[index])
   }
 
   swiperOptions: object = {
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
     },
     pagination: {
-      el: ".swiper-pagination"
+      el: '.swiper-pagination'
     }
   };
 }

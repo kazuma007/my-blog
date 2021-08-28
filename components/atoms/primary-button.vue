@@ -1,14 +1,13 @@
 <template>
   <button
     class="w-32 py-3 px-4 rounded-2xl bg-blue-600 text-white"
-    @click="$emit('click')"
-  >
+    @click="$emit('click')">
     {{ text }}
   </button>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class PrimaryButton extends Vue {

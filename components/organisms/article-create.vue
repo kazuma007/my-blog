@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
-import InputTextField from "~/components/atoms/input-text-field.vue";
-import ArticleCreateContent from "~/components/atoms/article-create-content.vue";
-import PrimaryButton from "~/components/atoms/primary-button.vue";
+import { Vue, Component } from 'vue-property-decorator'
+import InputTextField from '~/components/atoms/input-text-field.vue'
+import ArticleCreateContent from '~/components/atoms/article-create-content.vue'
+import PrimaryButton from '~/components/atoms/primary-button.vue'
 
 @Component({
   components: {
@@ -20,14 +20,16 @@ import PrimaryButton from "~/components/atoms/primary-button.vue";
   }
 })
 export default class ArticleCreate extends Vue {
-  inputTitle(title: string) {
-    this.$emit("input-title", title);
+  inputTitle (title: string) {
+    this.$emit('input-title', title)
   }
-  inputContent(content: string) {
-    this.$emit("input-content", content);
+
+  inputContent (content: string) {
+    this.$emit('input-content', content)
   }
-  changeFile(files: File[]) {
-    this.$emit("change-file", files[0]);
+
+  changeFile (files: File[]) {
+    this.$emit('change-file', files[0])
   }
 }
 </script>

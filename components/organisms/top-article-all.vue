@@ -1,8 +1,7 @@
 <template>
   <div
     class="top-article-all my-5 flex flex-col justify-start"
-    v-bind:class="{ 'ml-4': isEven }"
-  >
+    :class="{ 'ml-4': isEven }">
     <p class="top-article-all__title my-3 truncate text-xl font-bold">
       {{ article.title }}
     </p>
@@ -12,14 +11,16 @@
     <p class="top-article-all__content my-3 w-full truncate text-gray-600">
       {{ article.content }}
     </p>
-    <p class="text-xs leading-4 text-blue-800 text-center">READ MORE</p>
-    <hr class="top-article-all__line mt-6 border" />
+    <p class="text-xs leading-4 text-blue-800 text-center">
+      READ MORE
+    </p>
+    <hr class="top-article-all__line mt-6 border">
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-import { Article } from "~/models/article";
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Article } from '~/models/article'
 
 @Component
 export default class TopArticleAll extends Vue {
