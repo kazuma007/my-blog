@@ -1,11 +1,11 @@
 <template>
-  <div class="mx-5">
+  <div class="top-area mx-10">
     <top-header
       @click-twitter="navigateToTwitter"
       @click-github="navigateToGithub"
       @click-logo="navigateToTop"
     />
-    <div class="top-article mb-10 w-full flex flex-wrap justify-center">
+    <div class="top-article mb-10 w-full flex flex-wrap justify-between">
       <top-article-all
         v-for="(article, index) in articles"
         :key="index"
@@ -58,7 +58,6 @@ export default class TopPage extends Vue {
   }
 
   navigateToTop() {
-    console.log("hi");
     this.$router.push("/");
   }
 
@@ -72,3 +71,14 @@ export default class TopPage extends Vue {
   }
 }
 </script>
+<style scoped>
+@media all and (max-width: 480px) {
+  .top-article {
+    @apply justify-center;
+  }
+
+  .top-area {
+    @apply mx-5;
+  }
+}
+</style>

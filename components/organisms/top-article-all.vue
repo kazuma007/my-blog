@@ -32,11 +32,11 @@ export default class TopArticleAll extends Vue {
 </script>
 <style scoped>
 .top-article-all {
-  width: 45%;
+  width: 47.5%;
 }
 
 .top-article-all__info {
-  width: 100%;
+  @apply w-full;
 }
 
 .top-article-all__line {
@@ -47,8 +47,12 @@ export default class TopArticleAll extends Vue {
 }
 
 @media all and (max-width: 480px) {
-.top-article-all {
-  width: 100%;
-}
+  .top-article-all {
+    @apply w-full;
+  }
+
+  .top-article-all {
+    @apply ml-0;
+  }
 }
 </style>

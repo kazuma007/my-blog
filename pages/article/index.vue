@@ -47,7 +47,6 @@ export default class TopPage extends Vue {
   }
 
   navigateToTop() {
-    console.log("hi");
     this.$router.push("/");
   }
 }
